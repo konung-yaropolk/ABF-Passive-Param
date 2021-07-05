@@ -11,13 +11,13 @@ from statistics import mean
 from math import sqrt
 
 
-# Список імен файлів без росширення, в лапках, розділені комами
+# Список імен abf файлів без росширення, в лапках, розділені комами
 
 FILE_LIST = [
              
-'1',
-'3',
-'2',
+'filename_1',
+'filename_2',
+'filename_3',
 
 ]
 
