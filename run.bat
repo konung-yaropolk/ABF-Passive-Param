@@ -1,3 +1,3 @@
 echo off
-python ABF-Passive-Param.py > log.txt
+python ABF-passive-param.py > log.txt
 pause
