@@ -3,6 +3,7 @@
 # To run script install libraries using command:
 # pip install pyabf
 
+import csv
 import numpy as np
 import matplotlib.pyplot as plt
 import pyabf
@@ -15,6 +16,7 @@ import settings as s
 
 def make_stats(memtest, abf, path, filename):
 
+    '''
     print('Average on', abf.sweepCount,'sweeps:\n')
     print('Ra, MOhm:           ', round(mean(memtest.Ra.values), 2))
     print('Rm, MOhm:           ', round(mean(memtest.Rm.values), 2))
@@ -26,7 +28,36 @@ def make_stats(memtest, abf, path, filename):
     print('Rm:                 ', round(np.std(memtest.Rm.values) /sqrt(abf.sweepCount), 2))
     print('Cm:                 ', round(np.std(memtest.CmStep.values) /sqrt(abf.sweepCount),2))
     print('Ih:                 ', round(np.std(memtest.Ih.values) /sqrt(abf.sweepCount), 2))
+
     print('\n\n')
+    '''
+
+
+    header = ['Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']    
+    body = list(zip(*[memtest.Ra.values, 
+                      memtest.Ih.values, 
+                      memtest.Rm.values, 
+                      memtest.CmStep.values]))    
+    
+    median = [round(mean(memtest.Ra.values), 2),
+               round(mean(memtest.Ih.values), 2),
+               round(mean(memtest.Rm.values), 2), 
+               round(mean(memtest.CmStep.values), 2)]
+    
+    StdErr = [round(np.std(memtest.Ra.values) /sqrt(abf.sweepCount), 2),
+              round(np.std(memtest.Ih.values) /sqrt(abf.sweepCount), 2),
+              round(np.std(memtest.Rm.values) /sqrt(abf.sweepCount), 2),
+              round(np.std(memtest.CmStep.values) /sqrt(abf.sweepCount),2)]
+
+    with open(path + filename + '_memtest.', 'w') as f:
+     
+        write = csv.writer(f)        
+        write.writerow(header)
+        write.writerows(body)
+        write.writerow(median)
+        write.writerow(StdErr)
+
+
 
 
 
