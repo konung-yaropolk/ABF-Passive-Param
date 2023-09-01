@@ -113,5 +113,5 @@ def main(path, filename):
             print(path + filename, 'done')
 
 
-for i,j in s.FILE_LIST:
+for i,j in s.FILES_LIST:
     main(s.DIR,i)
