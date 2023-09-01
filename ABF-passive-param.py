@@ -125,7 +125,7 @@ def process_abf(path, filename):
 def main():
 
     for i,j in s.FILES_LIST:
-        process_abf(s.DIR,i)
+        process_abf(s.DIRECTORY,i)
 
 if __name__ == '__main__':
     main()

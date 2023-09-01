@@ -10,7 +10,7 @@ SHOW_GRAPH = False
 SAVE_GRAPH = True
 SAVE_FORMAT = 'png'   # png, svg, pdf, eps
 
-DIR = 'D:/Lab Work Files/Patch-clamp data'    # full path to directory with files, leave empty if you run this script in it
+DIRECTORY = 'D:/Lab Work Files/Patch-clamp data'    # full path to directory with files, leave empty if you run this script in it
 
 FILES_LIST = [
     
