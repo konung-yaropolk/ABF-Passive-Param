@@ -33,27 +33,33 @@ def make_stats(memtest, abf, path, filename):
     '''
 
 
-    header = ['Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']    
-    body = list(zip(*[memtest.Ra.values, 
+    header = ['','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']    
+    body = list(zip(*[[' '] * len(memtest.Ra.values),
+                      memtest.Ra.values, 
                       memtest.Ih.values, 
                       memtest.Rm.values, 
                       memtest.CmStep.values]))    
-    
-    median = [round(mean(memtest.Ra.values), 2),
+
+    median = ['Median:',
+               round(mean(memtest.Ra.values), 2),
                round(mean(memtest.Ih.values), 2),
                round(mean(memtest.Rm.values), 2), 
                round(mean(memtest.CmStep.values), 2)]
-    
-    StdErr = [round(np.std(memtest.Ra.values) /sqrt(abf.sweepCount), 2),
+
+    StdErr = ['StdErrMean:',
+              round(np.std(memtest.Ra.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.Ih.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.Rm.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.CmStep.values) /sqrt(abf.sweepCount),2)]
 
-    with open(path + filename + '_memtest.', 'w') as f:
+    with open(path + filename + '_memtest.csv', 'w') as f:
      
-        write = csv.writer(f)        
+        write = csv.writer(f, delimiter=',', lineterminator='\r',)
         write.writerow(header)
+        write.writerow([''])
         write.writerows(body)
+        write.writerow([''])
+        write.writerow(header)
         write.writerow(median)
         write.writerow(StdErr)
 
@@ -126,7 +132,7 @@ def make_plot(memtest, abf, path, filename):
 
 def process_abf(path, filename):
 
-    print('\n' + '-' * 70, '\n')
+    # print('\n' + '-' * 70, '\n')
 
     # Перехоплення помилки відсутнього файлу
     try:
@@ -143,7 +149,7 @@ def process_abf(path, filename):
                  
                 make_plot(memtest, abf, path, filename)
         
-            if s.SHOW_STATS:
+            if s.MAKE_STATS:
                 
                 make_stats(memtest, abf, path, filename)
 
@@ -151,7 +157,7 @@ def process_abf(path, filename):
             print(e)
             
         else: 
-            print(path + filename, 'done')
+            print(path + filename, '    -done')
 
 def main():
 

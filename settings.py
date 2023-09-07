@@ -1,16 +1,16 @@
 # Parameters:
 
-FIGURE_W = 4  # widtn in inches
-FIGURE_H = 4  # Height in inches
+FIGURE_W = 5  # widtn in inches
+FIGURE_H = 5  # Height in inches
 
 X_TICKS = 'sweeps'    # time or sweeps on X axis
 
-SHOW_STATS = False
+MAKE_STATS = True
 SHOW_GRAPH = False
 SAVE_GRAPH = True
 SAVE_FORMAT = 'png'   # png, svg, pdf, eps
 
-DIRECTORY = 'D:/Lab Work Files/Patch-clamp data'    # full path to directory with files, leave empty if you run this script in it
+DIRECTORY = 'F:/Lab Work Files/Patch-clamp data'    # full path to directory with files, leave empty if you run this script in it
 
 FILES_LIST = [
     
@@ -20,9 +20,9 @@ FILES_LIST = [
 
 
 # # MCU Project:
-# 
+
 # # 2M Ca:
-# 
+
 # ['/MCU_Project_Yariks_data/2021_04_15/2021_04_15_0000_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_04_19/2021_04_19_0006_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_04_19/2021_04_19_0009_baselined.abf', 12],
@@ -245,12 +245,12 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2021_04_22/2021_04_22_0005_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_06_03/2021_06_03_0040_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_06_03/2021_06_03_0041_baselined.abf', 12],
-# 
-# 
-# 
-#
+
+
+
+
 # # 1M Ca:
-# 
+
 # ['/MCU_Project_Yariks_data/2021_05_28/2021_05_28_0025_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_05_28/2021_05_28_0036_baselined.abf', 9],
 # ['/MCU_Project_Yariks_data/2021_05_29/2021_05_29_0029_baselined.abf', 12],
@@ -289,17 +289,17 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2021_06_07/2021_06_08_0046_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_06_07/2021_06_08_0047_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2021_06_08/2021_06_08_0077_baselined.abf', 12],
-# 
-# 
-# 
-# 
+
+
+
+
 # # 2M & 1M in 2022:
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_14/2022_09_14_0003_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_14/2022_09_14_0004_baselined.abf', 13],
 # ['/MCU_Project_Yariks_data/2022_09_14/2022_09_14_0005_baselined.abf', 9],
 # ['/MCU_Project_Yariks_data/2022_09_14/2022_09_14_0006_baselined.abf', 13],
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0001_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0002_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0006_baselined.abf', 12],
@@ -309,7 +309,7 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0014_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0021_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_19/2022_09_19_0022_baselined.abf', 12],
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0001_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0002_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0005_baselined.abf', 13],
@@ -322,12 +322,12 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0028_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0033_baselined.abf', 13],
 # ['/MCU_Project_Yariks_data/2022_09_20/2022_09_20_0034_baselined.abf', 13],
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_21/2022_09_21_0001_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_21/2022_09_21_0003_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_21/2022_09_21_0005_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_21/2022_09_21_0007_baselined.abf', 12],
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0003_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0006_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0007_baselined.abf', 4],
@@ -335,7 +335,7 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0014_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0020_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_22/2022_09_22_0021_baselined.abf', 4],
-# 
+
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_29_0001_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_29_0006_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_29_0007_baselined.abf', 12],
@@ -358,12 +358,12 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_30_0017_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_30_0023_baselined.abf', 12],
 # ['/MCU_Project_Yariks_data/2022_09_29/2022_09_30_0024_baselined.abf', 12],
-#
-#
-#
-#
+
+
+
+
 # # 2M & 1M & 4M in 2023:
-#
+
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0004.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0008.abf', 14],
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0013.abf', 12],
@@ -372,32 +372,32 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0017.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0018.abf', 23],
 # ['/MCU_Project_Yariks_data/2023_02_08/2023_02_08_0019.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0001.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0004.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0005.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0006.abf', 22],
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0007.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_02_16/2023_02_16_0012.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_04_07/2023_04_07_0003.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_07/2023_04_07_0007.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_04_10/2023_04_10_0001.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_10/2023_04_10_0003.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_10/2023_04_10_0004.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_10/2023_04_10_0007.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_04_20/2023_04_20_0001.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_20/2023_04_20_0002.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_20/2023_04_20_0003.abf', 22],
 # ['/MCU_Project_Yariks_data/2023_04_20/2023_04_20_0004.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_20/2023_04_20_0010.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_04_27/2023_04_27_0001.abf', 18],
 # ['/MCU_Project_Yariks_data/2023_04_27/2023_04_27_0017.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_04_27/2023_04_27_0024.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0010.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0012.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0013.abf', 12],
@@ -405,12 +405,12 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0015.abf', 13],
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0022.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_03/2023_05_03_0024.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_05_05/2023_05_05_0001.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_05/2023_05_05_0002.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_05/2023_05_05_0003.abf', 22],
 # ['/MCU_Project_Yariks_data/2023_05_05/2023_05_05_0004.abf', 12],
-#
+
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_08_0001.abf', 14],
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_08_0002.abf', 17],
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_08_0006.abf', 11],
@@ -447,7 +447,7 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_09_0006.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_09_0007.abf', 22],
 # ['/MCU_Project_Yariks_data/2023_05_08/2023_05_09_0008.abf', 13],
-#
+
 # ['/MCU_Project_Yariks_data/2023_05_10/2023_05_10_0007.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_10/2023_05_10_0008.abf', 12],
 # ['/MCU_Project_Yariks_data/2023_05_10/2023_05_10_0009.abf', 22],
@@ -460,6 +460,28 @@ FILES_LIST = [
 # ['/MCU_Project_Yariks_data/2023_05_10/2023_05_10_0021.abf', 12],
 
 
+
+# # SNI/SHAM + PMX205:
+
+# ['/SNI-SHAM + PMX/2023_08_10/2023_08_10_0006.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_10/2023_08_10_0012.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_10/2023_08_10_0017.abf',0],
+
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0005.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0008.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0011.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0014.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0017.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0020.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_11/2023_08_11_0023.abf',0],
+
+# ['/SNI-SHAM + PMX/2023_08_28/2023_08_28_0003.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_28/2023_08_28_0007.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_28/2023_08_28_0011.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_28/2023_08_28_0015.abf',0],
+
+# ['/SNI-SHAM + PMX/2023_08_31/2023_08_31_0020.abf',0],
+# ['/SNI-SHAM + PMX/2023_08_31/2023_08_31_0021.abf',0],
 
 
 
