@@ -33,8 +33,9 @@ def make_stats(memtest, abf, path, filename):
     '''
 
 
-    header = ['','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']    
-    body = list(zip(*[[' '] * len(memtest.Ra.values),
+    header1 = ['Sweep #:','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
+    header2 = ['','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
+    body = list(zip(*[[i+1 for i in range(len(memtest.Ra.values))],
                       memtest.Ra.values, 
                       memtest.Ih.values, 
                       memtest.Rm.values, 
@@ -55,11 +56,11 @@ def make_stats(memtest, abf, path, filename):
     with open(path + filename + '_memtest.csv', 'w') as f:
      
         write = csv.writer(f, delimiter=',', lineterminator='\r',)
-        write.writerow(header)
+        write.writerow(header1)
         write.writerow([''])
         write.writerows(body)
         write.writerow([''])
-        write.writerow(header)
+        write.writerow(header2)
         write.writerow(median)
         write.writerow(StdErr)
 
