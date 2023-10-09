@@ -68,14 +68,16 @@ def make_stats(memtest, abf, path, filename):
 
 
 
-def make_plot(memtest, memtest_ih, abf, path, filename):
+def make_plot(memtest, memtest_ih, abf, abf_ih, path, filename):
 
     if s.X_TICKS == 'time': 
         x_ticks = abf.sweepTimesMin
+        x_ticks_ih = abf_ih.sweepTimesMin
         x_label = "Recording Time (minutes)"
         
     if s.X_TICKS == 'sweeps': 
         x_ticks = list(range(1, abf.sweepCount +1))
+        x_ticks_ih = list(range(1, abf_ih.sweepCount +1))
         x_label = "Sweep number"
         
 
@@ -90,7 +92,7 @@ def make_plot(memtest, memtest_ih, abf, path, filename):
 
     ax1 = fig.add_subplot(222)
     ax1.grid(alpha=.3)
-    ax1.plot(x_ticks, memtest_ih.Ih.values,
+    ax1.plot(x_ticks_ih, memtest_ih.Ih.values,
             ".", color='C3', alpha=.7, mew=0)
     ax1.set_title(memtest_ih.Ih.name)
     ax1.set_ylabel(memtest_ih.Ih.units)
@@ -151,7 +153,7 @@ def process_abf(path, filename):
 
             if s.SHOW_GRAPH or s.SAVE_GRAPH:
                  
-                make_plot(memtest, memtest_ih, abf, path, filename)
+                make_plot(memtest, memtest_ih, abf, abf_ih, path, filename)
         
             if s.MAKE_STATS:
                 
