@@ -1,3 +1,9 @@
+# To run script install libraries using command:
+# pip install pyabf
+
+# Note: for baselined records Holding Current measurements will be incorrect. 
+# To get correct holding current values use intact records only.
+
 # Parameters:
 
 FIGURE_W = 5  # widtn in inches

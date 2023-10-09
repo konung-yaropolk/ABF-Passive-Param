@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-# To run script install libraries using command:
-# pip install pyabf
-
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
