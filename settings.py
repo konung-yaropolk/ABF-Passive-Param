@@ -9,11 +9,11 @@
 FIGURE_W = 5  # widtn in inches
 FIGURE_H = 5  # Height in inches
 
-X_TICKS = 'sweeps'    # time or sweeps on X axis
+X_TICKS = 'sweeps'    # show 'time' or 'sweeps' on X axis
 
-MAKE_STATS = True
+MAKE_STATS = True     # save .csv file for each listed .abf file with values for each sweep
 SHOW_GRAPH = False
-SAVE_GRAPH = True
+SAVE_GRAPH = True     # save summary figure for each listed .abf file
 SAVE_FORMAT = 'png'   # png, svg, pdf, eps
 
 DIRECTORY = 'F:/Lab Work Files/Patch-clamp data'    # full path to directory with files, leave empty if you run this script in it
