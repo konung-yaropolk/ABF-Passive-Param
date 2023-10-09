@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# To run script install libraries using command:
+# pip install pyabf
+
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
@@ -65,7 +68,7 @@ def make_stats(memtest, abf, path, filename):
 
 
 
-def make_plot(memtest, abf, path, filename):
+def make_plot(memtest, memtest_ih, abf, path, filename):
 
     if s.X_TICKS == 'time': 
         x_ticks = abf.sweepTimesMin
@@ -87,10 +90,10 @@ def make_plot(memtest, abf, path, filename):
 
     ax1 = fig.add_subplot(222)
     ax1.grid(alpha=.3)
-    ax1.plot(x_ticks, memtest.Ih.values,
+    ax1.plot(x_ticks, memtest_ih.Ih.values,
             ".", color='C3', alpha=.7, mew=0)
-    ax1.set_title(memtest.Ih.name)
-    ax1.set_ylabel(memtest.Ih.units)
+    ax1.set_title(memtest_ih.Ih.name)
+    ax1.set_ylabel(memtest_ih.Ih.units)
 
     ax2 = fig.add_subplot(223)
     ax2.grid(alpha=.3)
@@ -136,7 +139,10 @@ def process_abf(path, filename):
     try:
         # Відкривання abf файлу
         abf = pyabf.ABF(path + filename)
+        abf_ih = pyabf.ABF(path + filename.replace('_baselined.abf', '.abf'))   # substract '_baselined' from filename
+
         memtest = pyabf.tools.memtest.Memtest(abf)
+        memtest_ih = pyabf.tools.memtest.Memtest(abf_ih)
     except ValueError as e:
         print(e)
     else:
@@ -145,7 +151,7 @@ def process_abf(path, filename):
 
             if s.SHOW_GRAPH or s.SAVE_GRAPH:
                  
-                make_plot(memtest, abf, path, filename)
+                make_plot(memtest, memtest_ih, abf, path, filename)
         
             if s.MAKE_STATS:
                 
