@@ -66,65 +66,72 @@ def make_stats(memtest, abf, path, filename):
 
 
 def make_plot(memtest, abf, path, filename):
-
-    if s.X_TICKS == 'time': 
-        x_ticks = abf.sweepTimesMin
-        x_label = "Recording Time (minutes)"
         
-    if s.X_TICKS == 'sweeps': 
-        x_ticks = list(range(1, abf.sweepCount +1))
-        x_label = "Sweep number"
-        
+    try:
 
-    fig = plt.figure(figsize=(s.FIGURE_W, s.FIGURE_H))
+        if s.X_TICKS == 'time': 
+            x_ticks = abf.sweepTimesMin
+            x_label = "Recording Time (minutes)"
+            
+        if s.X_TICKS == 'sweeps': 
+            x_ticks = list(range(1, abf.sweepCount +1))
+            x_label = "Sweep number"
+            
 
-    ax3 = fig.add_subplot(221)
-    ax3.grid(alpha=.3)
-    ax3.plot(x_ticks, memtest.Ra.values,
-            ".", color='C0', alpha=.7, mew=0)
-    ax3.set_title(memtest.Ra.name)
-    ax3.set_ylabel(memtest.Ra.units)
+        fig = plt.figure(figsize=(s.FIGURE_W, s.FIGURE_H))
 
-    ax1 = fig.add_subplot(222)
-    ax1.grid(alpha=.3)
-    ax1.plot(x_ticks, memtest.Ih.values,
-            ".", color='C3', alpha=.7, mew=0)
-    ax1.set_title(memtest.Ih.name)
-    ax1.set_ylabel(memtest.Ih.units)
+        ax3 = fig.add_subplot(221)
+        ax3.grid(alpha=.3)
+        ax3.plot(x_ticks, memtest.Ra.values,
+                ".", color='C0', alpha=.7, mew=0)
+        ax3.set_title(memtest.Ra.name)
+        ax3.set_ylabel(memtest.Ra.units)
 
-    ax2 = fig.add_subplot(223)
-    ax2.grid(alpha=.3)
-    ax2.plot(x_ticks, memtest.Rm.values,
-            ".", color='C5', alpha=.7, mew=0)
-    ax2.set_title(memtest.Rm.name)
-    ax2.set_ylabel(memtest.Rm.units)
+        ax1 = fig.add_subplot(222)
+        ax1.grid(alpha=.3)
+        ax1.plot(x_ticks, memtest.Ih.values,
+                ".", color='C3', alpha=.7, mew=0)
+        ax1.set_title(memtest.Ih.name)
+        ax1.set_ylabel(memtest.Ih.units)
 
-    ax4 = fig.add_subplot(224)
-    ax4.grid(alpha=.3)
-    ax4.plot(x_ticks, memtest.CmStep.values,
-            ".", color='C2', alpha=.7, mew=0)
-    ax4.set_title(memtest.CmStep.name)
-    ax4.set_ylabel(memtest.CmStep.units)
+        ax2 = fig.add_subplot(223)
+        ax2.grid(alpha=.3)
+        ax2.plot(x_ticks, memtest.Rm.values,
+                ".", color='C5', alpha=.7, mew=0)
+        ax2.set_title(memtest.Rm.name)
+        ax2.set_ylabel(memtest.Rm.units)
 
-    for ax in [ax1, ax2, ax3, ax4]:
-        ax.margins(0.1, 0.9)
-        ax.set_xlabel(x_label)
-        for tagTime in abf.tagTimesMin:
-            ax.axvline(tagTime, color='k', ls='--')
+        ax4 = fig.add_subplot(224)
+        ax4.grid(alpha=.3)
+        ax4.plot(x_ticks, memtest.CmStep.values,
+                ".", color='C2', alpha=.7, mew=0)
+        ax4.set_title(memtest.CmStep.name)
+        ax4.set_ylabel(memtest.CmStep.units)
+
+        for ax in [ax1, ax2, ax3, ax4]:
+            ax.margins(0.1, 0.9)
+            ax.set_xlabel(x_label)
+            for tagTime in abf.tagTimesMin:
+                ax.axvline(tagTime, color='k', ls='--')
 
 
-    # Вивести рисунок
-    plt.tight_layout()
-    fig.patch.set_facecolor('white')
-    plt.suptitle('')   # (filename[-15:])  # Вывести только имя файла (последние 15 символов пути для типичного abf файла)
+        # Вивести рисунок
+        plt.tight_layout()
+        fig.patch.set_facecolor('white')
+        plt.suptitle('')   # (filename[-15:])  # Вывести только имя файла (последние 15 символов пути для типичного abf файла)
 
-    if s.SAVE_GRAPH:
-        plt.savefig(path + filename + '_memtest.' + s.SAVE_FORMAT)    
-        
-    if s.SHOW_GRAPH:
-        plt.show()
+        if s.SAVE_GRAPH:
+            plt.savefig(path + filename + '_memtest.' + s.SAVE_FORMAT)    
+            
+        if s.SHOW_GRAPH:
+            plt.show()
+
+    except Exception as e:
+        print('An error occured when processing {}:\n{}'.format(filename, e))
+        return
     
-    plt.close()
+    finally:
+        plt.close()
 
 
 
