@@ -11,7 +11,7 @@ FIGURE_H = 5  # Height in inches
 
 X_TICKS = 'sweeps'    # show 'time' or 'sweeps' on X axis
 
-MAKE_STATS = True     # save .csv file for each listed .abf file with values for each sweep
+MAKE_STATS = False     # save .csv file for each listed .abf file with values for each sweep
 SHOW_GRAPH = False
 SAVE_GRAPH = True     # save summary figure for each listed .abf file
 SAVE_FORMAT = 'png'   # png, svg, pdf, eps
@@ -491,6 +491,19 @@ FILES_LIST = [
 # ['/SNI-SHAM + PMX/2023_08_31/2023_08_31_0020.abf',0],
 # ['/SNI-SHAM + PMX/2023_08_31/2023_08_31_0021.abf',0],
 
+
+
+
+# # TRP project:
+
+# ['/TRP project/2024_03_11/2024_03_11_0003.abf',0],
+# ['/TRP project/2024_03_11/2024_03_11_0006.abf',0],
+# ['/TRP project/2024_03_11/2024_03_11_0008.abf',0],
+# ['/TRP project/2024_03_11/2024_03_11_0009.abf',0],
+#
+# ['/TRP project/2024_03_12/2024_03_12_0001.abf',0],
+# ['/TRP project/2024_03_12/2024_03_12_0003.abf',0],
+# ['/TRP project/2024_03_12/2024_03_12_0005.abf',0],
 
 
 ]
