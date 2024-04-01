@@ -123,7 +123,7 @@ def make_plot(memtest, memtest_ih, abf, abf_ih, path, filename):
     plt.suptitle('')   # (filename[-15:])  # Вывести только имя файла (последние 15 символов пути для типичного abf файла)
 
     if s.SAVE_GRAPH:
-        plt.savefig(path + filename + '_memtest.' + s.SAVE_FORMAT)    
+        plt.savefig(path + filename + '_memtest.' + s.SAVE_FORMAT, transparent=True)    
         
     if s.SHOW_GRAPH:
         plt.show()
