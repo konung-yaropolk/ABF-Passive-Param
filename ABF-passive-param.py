@@ -149,10 +149,10 @@ def process_abf(path, filename):
         print(e)
 
     else:
+        
         try:
             if s.SHOW_GRAPH or s.SAVE_GRAPH:                 
-                make_plot(memtest, memtest_ih, abf, abf_ih, path, filename)
-        
+                make_plot(memtest, memtest_ih, abf, abf_ih, path, filename)        
             if s.MAKE_STATS:                
                 make_stats(memtest, abf, path, filename)
 
