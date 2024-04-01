@@ -33,8 +33,8 @@ def make_stats(memtest, abf, path, filename):
     '''
 
 
-    header1 = ['Sweep #:','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
-    header2 = ['','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
+    names = ['Sweep #:','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
+    units = ['','Ra, MOhm:', 'Ih, pA:', 'Rm, MOhm:', 'Cm, pF:']
     body = list(zip(*[[i+1 for i in range(len(memtest.Ra.values))],
                       memtest.Ra.values, 
                       memtest.Ih.values, 
@@ -47,22 +47,21 @@ def make_stats(memtest, abf, path, filename):
                round(mean(memtest.Rm.values), 2), 
                round(mean(memtest.CmStep.values), 2)]
 
-    StdErr = ['StdErrMean:',
+    sem = ['StdErrMean:',
               round(np.std(memtest.Ra.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.Ih.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.Rm.values) /sqrt(abf.sweepCount), 2),
               round(np.std(memtest.CmStep.values) /sqrt(abf.sweepCount),2)]
 
-    with open(path + filename + '_memtest.csv', 'w') as f:
-     
+    with open(path + filename + '_memtest.csv', 'w') as f:     
         write = csv.writer(f, delimiter=',', lineterminator='\r',)
-        write.writerow(header1)
+        write.writerow(names)
         write.writerow([''])
         write.writerows(body)
         write.writerow([''])
-        write.writerow(header2)
+        write.writerow(units)
         write.writerow(median)
-        write.writerow(StdErr)
+        write.writerow(sem)
 
 
 
@@ -145,18 +144,16 @@ def process_abf(path, filename):
 
         memtest = pyabf.tools.memtest.Memtest(abf)
         memtest_ih = pyabf.tools.memtest.Memtest(abf_ih)
+
     except ValueError as e:
         print(e)
+
     else:
-
         try:
-
-            if s.SHOW_GRAPH or s.SAVE_GRAPH:
-                 
+            if s.SHOW_GRAPH or s.SAVE_GRAPH:                 
                 make_plot(memtest, memtest_ih, abf, abf_ih, path, filename)
         
-            if s.MAKE_STATS:
-                
+            if s.MAKE_STATS:                
                 make_stats(memtest, abf, path, filename)
 
         except Exception as e: 
