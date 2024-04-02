@@ -121,7 +121,7 @@ def make_plot(memtest, memtest_ih, abf, abf_ih, path, filename):
     plt.tight_layout()
     fig.patch.set_facecolor('white')
     #plt.suptitle(filename[-19:])   #  Вывести только имя файла (последние 19 символов пути для типичного abf файла)
-
+        
     if s.SAVE_GRAPH:
         plt.savefig(path + filename + '_memtest.' + s.SAVE_FORMAT, transparent=True)    
         
